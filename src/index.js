@@ -1,4 +1,5 @@
-module.exports = function toReadable (number) {
+module.exports = 
+function toReadable (number) {
 
     let smallNumbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 
         'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
@@ -49,17 +50,21 @@ if ( number >= 100 && number < 999) {
     console.log(smallNumbers[hundreds] + ' hundred' + ' ' + smallNumbersZ[number - hundreds * 100]);
         return (smallNumbers[hundreds] + ' hundred' + ' ' + smallNumbersZ[number - hundreds * 100]);
    } 
-    
-
+   else if (number % 10 === 0 && number % 100 !== 0) {
+   console.log(smallNumbers[hundreds] + ' hundred' + ' ' + bigNumbers[hundredTens]);
+   return (smallNumbers[hundreds] + ' hundred' + ' ' + bigNumbers[hundredTens]);
+    } else if (number % 100 === 0) {
+        console.log(smallNumbers[hundreds]+ ' hundred');
+        return (smallNumbers[hundreds] + ' hundred');
     }
     
         console.log(smallNumbers[hundreds] + ' ' + 'hundred' + ' ' + bigNumbers[hundredTens] + ' ' + smallNumbers[hundredOnes]);
         return (smallNumbers[hundreds] + ' ' + 'hundred' + ' ' + bigNumbers[hundredTens] + ' ' + smallNumbers[hundredOnes]);
 // 
 } 
+}
 
-
-
+// toReadable (600)
 
 
 
