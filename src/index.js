@@ -3,7 +3,7 @@ module.exports = function toReadable (number) {
     let smallNumbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 
         'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
         smallNumbersZ = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 
-        'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+        'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
         bigNumbers = ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
         hugeNumbers = ['hundred', 'thousand', 'million', 'milliard'];
         hundreds = Math.floor (number / 100);
@@ -44,15 +44,29 @@ if ( number >= 100 && number < 999) {
         console.log(hundreds);
         console.log(hundredTens);
         console.log(hundredOnes);
-        console.log(smallNumbers[hundreds] + ' hundred' + ' ' + bigNumbers[hundredTens] + ' ' + smallNumbersZ[hundredOnes]);
-        return (smallNumbers[hundreds] + ' hundred' + ' ' + bigNumbers[hundredTens] + ' ' + smallNumbersZ[hundredOnes]);
+
+   if ((number - hundreds * 100) <= 20 && (number - (hundreds * 100)) > 0) {
+    console.log(smallNumbers[hundreds] + ' hundred' + ' ' + smallNumbersZ[number - hundreds * 100]);
+        return (smallNumbers[hundreds] + ' hundred' + ' ' + smallNumbersZ[number - hundreds * 100]);
+   } 
+    
+
+    }
+    
+        console.log(smallNumbers[hundreds] + ' ' + 'hundred' + ' ' + bigNumbers[hundredTens] + ' ' + smallNumbers[hundredOnes]);
+        return (smallNumbers[hundreds] + ' ' + 'hundred' + ' ' + bigNumbers[hundredTens] + ' ' + smallNumbers[hundredOnes]);
+// 
 } 
 
-if (hundredTens === 0){
-    
-    console.log(smallNumbers[hundreds] + ' hundred' + bigNumbers[hundredTens]);
 
-}
-};
 
-// toReadable (406)
+
+
+
+// if (hundredOnes === 0) {
+//     console.log(smallNumbers[hundreds] + ' ' + 'hundred' + ' ' + bigNumbers[hundredTens]);
+//     return (smallNumbers[hundreds] + ' ' + 'hundred' + ' ' + bigNumbers[hundredTens]);
+// } else if (hundredTens === 0) {
+//     console.log(smallNumbers[hundreds] + ' ' + 'hundred');
+//     return (smallNumbers[hundreds] + ' ' + 'hundred');
+// }
